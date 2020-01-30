@@ -10,10 +10,16 @@
 -   BAYBEACH_ADMIN_PASSWORD=
 -   BAYBEACH_COOKIE_SECRET=
 
+-   DB_HOST=
+-   DB_USER=
+-   DB_PASS=
+-   DB_SOCKET=
+
 ## Requires
 
 Common/email -> module to send email via nodemailer
 
 ## Use
 
-Connect server/index.js to Node Express app
+-   Connect server/index.js to Node Express app
+-   Uses database schema 'vuantecca'
