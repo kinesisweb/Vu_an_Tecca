@@ -13,3 +13,7 @@
 ## Requires
 
 Common/email -> module to send email via nodemailer
+
+## Use
+
+Connect server/index.js to Node Express app
