@@ -4,7 +4,7 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm run install
 
@@ -20,3 +20,11 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+Fix alignment on the booking info (logos and paragraphs as one)
+
+No vertical scrolling on the take a tour
+
+No blue button in footer.
+
+Visitor clicking green availability will create an email for those dates.

@@ -1,33 +1,13 @@
 <template>
-	<v-lazy
-		v-model="isActive"
-		:options="{
+	<v-lazy v-model="isActive" :options="{
 			threshold: 1
-		}"
-		transition="fade"
-	>
-		<v-col cols="12" md="10" offset-md="1">
+		}" transition="fade">
+		<v-col cols="12" md="10" offset-md="1" class="pa-0">
 			<v-row v-if="$vuetify.breakpoint.smAndDown">
-				<v-item-group
-					v-model="window"
-					class="text-center"
-					style="width: 100%;"
-					mandatory
-				>
-					<v-item
-						v-for="n in slides"
-						:key="`btn-${n}`"
-						v-slot:default="{ active, toggle }"
-					>
-						<v-btn
-							:input-value="active"
-							icon
-							@click="toggle"
-							:class="{ 'active-item': active }"
-						>
-							<v-icon>
-								mdi-record
-							</v-icon>
+				<v-item-group v-model="window" class="text-center" style="width: 100%;" mandatory>
+					<v-item v-for="n in slides" :key="`btn-${n}`" v-slot:default="{ active, toggle }">
+						<v-btn :input-value="active" icon @click="toggle" :class="{ 'active-item': active }">
+							<v-icon>mdi-record</v-icon>
 						</v-btn>
 					</v-item>
 				</v-item-group>
@@ -40,18 +20,9 @@
 					tag="v-flex"
 					v-if="$vuetify.breakpoint.mdAndUp"
 				>
-					<v-item
-						v-for="(slide, idx) in slides"
-						:key="idx"
-						v-slot:default="{ active, toggle }"
-					>
+					<v-item v-for="(slide, idx) in slides" :key="idx" v-slot:default="{ active, toggle }">
 						<div>
-							<v-btn
-								:input-value="active"
-								icon
-								@click="toggle"
-								:class="{ 'active-item': active }"
-							>
+							<v-btn :input-value="active" icon @click="toggle" :class="{ 'active-item': active }">
 								<v-icon>mdi-record</v-icon>
 							</v-btn>
 						</div>
@@ -59,26 +30,16 @@
 				</v-item-group>
 
 				<v-col>
-					<v-window
-						v-model="window"
-						style="min-height: 550px;"
-						:vertical="$vuetify.breakpoint.mdAndUp"
-					>
-						<v-window-item
-							v-for="(slide, idx) in slides"
-							:key="idx"
-						>
-							<v-card class="pa-4" flat>
+					<v-window v-model="window" style="min-height: 550px;">
+						<v-window-item v-for="(slide, idx) in slides" :key="idx">
+							<v-card class="pa-md-4" flat>
 								<v-card-text>
-									<v-toolbar
-										class="mb-4"
-										align="center"
-										color="accent"
-										dark
-									>
-										<strong class="title">{{
+									<v-toolbar class="mb-4" align="center" color="accent" dark>
+										<strong class="title">
+											{{
 											slide.title
-										}}</strong>
+											}}
+										</strong>
 										<v-spacer></v-spacer>
 										<v-btn text @click="nextRoom">
 											Next
@@ -90,7 +51,7 @@
 										<v-col
 											cols="12"
 											md="6"
-											style="min-height: 400px"
+											class="tour-photo-element"
 											:class="{
 												'text-center':
 													$vuetify.breakpoint
@@ -98,18 +59,10 @@
 											}"
 										>
 											<div class="image-overlay">
-												<img
-													:src="slide.image"
-													style="max-width: 100%; max-height: 60vh"
-													eager
-												/>
+												<img :src="slide.image" style="max-width: 100%; height: auto; max-height: 50vh" eager />
 											</div>
 										</v-col>
-										<v-col
-											cols="12"
-											md="6"
-											v-html="slide.caption"
-										></v-col>
+										<v-col cols="12" md="6" v-html="slide.caption"></v-col>
 									</v-row>
 								</v-card-text>
 							</v-card>
@@ -129,6 +82,7 @@ import bedroom2 from "@/assets/images/bedroom2.jpg";
 import kitchen from "@/assets/images/kitchen.jpg";
 import bathroom from "@/assets/images/bathroom.jpg";
 import parking from "@/assets/images/parking.jpg";
+import children from "@/assets/images/childrenspark.jpg";
 
 export default {
 	mounted() {
@@ -156,9 +110,22 @@ export default {
 			bedroom1,
 			bedroom2,
 			kitchen,
+			children,
 			isActive: false,
 			window: 0,
 			slides: [
+				{
+					image: lounge,
+					title: "Lounge",
+					colour: "blue",
+					caption: `<p class="subtitle-1">When our chalet was re-built recently, we decided our emphasis
+                would be towards spacious, luxurious living so Vu an Tecca
+                accommodates 4 people very comfortably rather than 6+ in cramped
+                quarters. That said, there is a travel cot for infants.
+                Featuring modern décor throughout, the lounge boasts comfortable
+                ivory leather sofas and the dining area enjoys contemporary
+                chrome & glass dining suite with ivory leather dining chairs.</p>`
+				},
 				{
 					image: rearGarden,
 					title: "Rear Garden",
@@ -171,25 +138,19 @@ export default {
                 provided for use in the garden.</p>`
 				},
 				{
-					image: lounge,
-					title: "Spacious Lounge",
-					colour: "blue",
-					caption: `<p class="subtitle-1">When our chalet was re-built recently, we decided our emphasis
-                would be towards spacious, luxurious living so Vu an Tecca
-                accommodates 4 people very comfortably rather than 6+ in cramped
-                quarters. That said, there is a travel cot for infants.
-                Featuring modern décor throughout, the lounge boasts comfortable
-                ivory leather sofas and the dining area enjoys contemporary
-                chrome & glass dining suite with ivory leather dining chairs.</p>`
+					image: children,
+					title: "Children's Park",
+					caption: `<p class="subtitle-1">If the stunning walks and the beautiful beaches don't tire them out, try the activity park at the rear of the chalet.</p>
+					<p class="subtitle-1">Includes slide, adventure playground, rockers and even a fun-sized boat area in the sand.</p>`
 				},
 				{
 					image: bedroom1,
 					title: "Master Bedroom",
 					colour: "pink",
-					caption: `<p>After an exhausting day on the beach or browsing the galleries and shops there is nothing worse than a poor nights sleep,
+					caption: `<p class="subtitle-1">After an exhausting day on the beach or browsing the galleries and shops there is nothing worse than a poor nights sleep,
           so it's been our aim to provide hotel quality beds and bedding.<p>
 
-<p>The master bedroom overlooks the rear garden area and features a King Size posturepedic bed with 2 x full size built-in wardrobes,
+<p class="subtitle-1">The master bedroom overlooks the rear garden area and features a King Size posturepedic bed with 2 x full size built-in wardrobes,
 dressing table area and large bedside cabinets. Flat screen LCD TV with Freeview & built in DVD player.
 This spacious bedroom is ideal for any guests with mobility issues as space is abundant.</p>`
 				},
@@ -197,10 +158,7 @@ This spacious bedroom is ideal for any guests with mobility issues as space is a
 					image: bedroom2,
 					title: "Twin Bedroom",
 					colour: "pink",
-					caption: `<p>After an exhausting day on the beach or browsing the galleries and shops there is nothing worse than a poor nights sleep,
-          so it's been our aim to provide hotel quality beds and bedding.<p>
-
-<p>The twin bedroom also enjoys 2 x posturepedic single beds with storage beneath, 2 x double wardrobes, chest of drawers, bedside table,
+					caption: `<p class="subtitle-1">The twin bedroom also enjoys 2 x posturepedic single beds with storage beneath, 2 x double wardrobes, chest of drawers, bedside table,
 shelves and suitcase store. Flat screen LCD TV with Freeview & remote control. Free Wifi provided.</p>`
 				},
 				{
@@ -215,18 +173,18 @@ shelves and suitcase store. Flat screen LCD TV with Freeview & remote control. F
 				{
 					image: bathroom,
 					title: "Bathroom",
-					caption: `<p>The fully-tiled spacious bathroom enjoys a four-piece, full-sized suite comprising:</p>
+					caption: `<p class="subtitle-1">The fully-tiled spacious bathroom enjoys a four-piece, full-sized suite comprising:</p>
 
 <ul style="margin-bottom: 1em;"><li>Full sized Bath</li>
 <li>WC, wash-hand basin</li>
 <li>Large separate shower cubicle with electric power shower</li></ul>
-<p>An additional useful feature, not found in many chalets, is a large storeroom off the bathroom for suitcases, 
+<p class="subtitle-1">An additional useful feature, not found in many chalets, is a large storeroom off the bathroom for suitcases, 
 bags, coats etc. In here you will find an iron and an ironing board, and all cleaning equipment such as a vacuum, brooms, cloaks store etc.</p>`
 				},
 				{
 					image: parking,
 					title: "Parking",
-					caption: `<p>Ample car parking is available immediately to the front of the chalet, so you won't have to ferry cases or shopping any distance.</p>`
+					caption: `<p class="subtitle-1">Ample car parking is available immediately to the front of the chalet, so you won't have to ferry cases or shopping any distance.</p>`
 				}
 			]
 		};
@@ -237,5 +195,11 @@ bags, coats etc. In here you will find an iron and an ironing board, and all cle
 <style scoped>
 .active-item {
 	color: #bf360c !important;
+}
+
+@media only screen and (min-width: 960px) {
+	.tour-photo-element {
+		min-height: 400px;
+	}
 }
 </style>

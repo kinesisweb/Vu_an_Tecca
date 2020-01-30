@@ -1,19 +1,16 @@
 <template>
-	<v-container>
+	<v-container id="booking-info-section">
 		<template v-for="(item, idx) in list">
 			<v-row :key="item.title">
-				<v-col class="shrink">
-					<v-icon class="mr-4 mt-3">mdi-{{ item.icon }}</v-icon>
-				</v-col>
-				<v-col>
-					<v-subheader inset>{{ item.title }}</v-subheader>
-					<div v-html="item.content"></div>
-				</v-col>
+				<v-card flat style="width: 100%">
+					<v-card-title>
+						<v-icon color="accent">mdi-{{ item.icon }}</v-icon>
+						<span style="margin-left: 1em;">{{ item.title }}</span>
+					</v-card-title>
+					<v-card-text v-html="item.content"></v-card-text>
+				</v-card>
 			</v-row>
-			<v-divider
-				:key="item.title + '-divider'"
-				v-if="idx < list.length - 1"
-			/>
+			<v-divider :key="item.title + '-divider'" v-if="idx < list.length - 1" />
 		</template>
 	</v-container>
 </template>
@@ -60,18 +57,6 @@ export default {
 					content: `We provide your first week's average electricity in with the price (£7). Yes, that's correct, the first week is on us. After that, electricity is via a £1 coin meter which is located in the hallway.`
 				},
 				{
-					icon: "paw",
-					title: "Pets",
-					content: `We are pleased to welcome small, well-behaved dogs for a nominal additional charge of £20 per dog on the strict proviso that I get extra puppy cuddles.`
-				},
-				{
-					icon: "beach",
-					title: "Pet Friendly Beaches",
-					content: `<p>From April to May, Riviere Towans Beach is open to all pets.</p>
-                    <p>From May onwards Mexico Towans beach is available for puppy capers and fun times. Mexico Towans is immediatley adjacent to Riviere Towans and only a very short walk from the chalet.</p>
-                    <p>If you have any queries, don't hesitate to ask and I will be happy to clarify further.</p>`
-				},
-				{
 					icon: "television",
 					title: "Entertainment",
 					content: `<ul><li>LCD Freeview flat-screen TV in the lounge</li>
@@ -85,10 +70,21 @@ export default {
 					title: "Arrival and Departure",
 					content: `<ul><li><b>Arrival</b>: Saturday 2.30pm onwards</li>
                     <li><b>Departure</b>: Saturday by 10am</li></ul>
-                    <p>In special circumstances, we can vary departure time, but this must be agreed in advance of your stay.</p>`
+                    <p class="mt-4">In special circumstances, we can vary departure time, but this must be agreed in advance of your stay.</p>`
 				}
 			]
 		};
 	}
 };
 </script>
+
+<style lang="scss">
+#booking-info-section ul {
+	list-style-type: none !important;
+	padding-left: 0;
+
+	li {
+		margin: 0.5em;
+	}
+}
+</style>

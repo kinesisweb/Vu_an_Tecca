@@ -38,7 +38,12 @@ module.exports = {
 	buildModules: ["@nuxtjs/vuetify"],
 
 	modules: ["@nuxtjs/axios"],
-	axios: {},
+	axios: {
+		baseURL:
+			process.env.NODE_ENV === "development"
+				? "http://baybeach.localhost:8080"
+				: "http://alpha.stivesbaybeachchalet.co.uk"
+	},
 	vuetify: {
 		customVariables: ["~/assets/variables.scss"],
 		theme: {
@@ -67,5 +72,11 @@ module.exports = {
 		 ** You can extend webpack config here
 		 */
 		extend(config, ctx) {}
+	},
+	env: {
+		baseURL:
+			process.env.NODE_ENV === "development"
+				? "http://baybeach.localhost:8080"
+				: "http://alpha.stivesbaybeachchalet.co.uk"
 	}
 };

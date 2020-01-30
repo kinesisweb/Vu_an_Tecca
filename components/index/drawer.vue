@@ -15,13 +15,18 @@
 		<v-divider></v-divider>
 
 		<v-list dense>
-			<v-list-item link>
+			<v-list-item
+				link
+				v-for="(link, idx) in links"
+				:key="idx"
+				:href="link.href"
+			>
 				<v-list-item-icon>
-					<v-icon>mdi-link</v-icon>
+					<v-icon>mdi-{{ link.icon }}</v-icon>
 				</v-list-item-icon>
 
 				<v-list-item-content>
-					<v-list-item-title>Test link</v-list-item-title>
+					<v-list-item-title>{{ link.text }}</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
 		</v-list>
@@ -29,9 +34,14 @@
 </template>
 
 <script>
+import { mapFields } from "vuex-map-fields";
+
 export default {
 	props: {
 		value: Boolean
+	},
+	computed: {
+		...mapFields(["links"])
 	}
 };
 </script>

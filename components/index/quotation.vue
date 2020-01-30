@@ -29,18 +29,18 @@
 .quotation::before,
 .quotation::after {
 	font-size: 5em;
-	top: -0.5em;
-	opacity: 0.5;
+	top: -0.4em;
+	opacity: 0.3;
 	position: absolute;
 }
 
 .quotation::before {
 	content: open-quote;
-	left: -0.7em;
+	left: -33px;
 }
 
 .quotation::after {
 	content: close-quote;
-	right: -0.7em;
+	right: -30px;
 }
 </style>

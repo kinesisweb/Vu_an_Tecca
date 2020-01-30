@@ -1,11 +1,9 @@
 <template>
 	<div class="hero-image" :style="'background-image: url(' + hero + ')'">
 		<div
-			class="hero-caption font-weight-light"
+			class="hero-caption font-weight-medium"
 			:class="[$vuetify.breakpoint.mdAndUp ? 'display-3' : 'display-1']"
-		>
-			Vu an Tecca
-		</div>
+		>Vu an Tecca</div>
 		<slot></slot>
 	</div>
 </template>
@@ -27,12 +25,13 @@ export default {
 	width: 100%;
 	height: 85vh;
 	background-attachment: fixed;
-	background-position: bottom center;
+	background-position: center;
 	background-size: cover;
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	max-width: 100%;
 
 	.hero-caption {
 		color: #eee;

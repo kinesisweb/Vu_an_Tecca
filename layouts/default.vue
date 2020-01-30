@@ -2,12 +2,17 @@
 	<v-app>
 		<v-content>
 			<nuxt />
+			<comp-footer />
 		</v-content>
 	</v-app>
 </template>
 
 <script>
+import CompFooter from "@/components/Footer";
 export default {
+	components: {
+		CompFooter
+	},
 	data() {
 		return {
 			clipped: false,
@@ -43,5 +48,17 @@ html a {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
 		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
 		"Helvetica Neue", sans-serif;
+}
+
+@media only screen and (min-width: 960px) {
+	html,
+	body {
+		font-size: 16px;
+	}
+}
+
+html,
+body {
+	font-size: 14px;
 }
 </style>

@@ -1,4 +1,4 @@
-const count = 6;
+const count = 10;
 const images = [];
 
 for (let i = 1; i <= count; i++) {
