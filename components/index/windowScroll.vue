@@ -59,7 +59,7 @@
 											}"
 										>
 											<div class="image-overlay">
-												<img :src="slide.image" style="max-width: 100%; height: auto; max-height: 50vh" eager />
+												<img :src="slide.image" style="max-width: 100%; height: auto; max-height: 50vh" />
 											</div>
 										</v-col>
 										<v-col cols="12" md="6" v-html="slide.caption"></v-col>

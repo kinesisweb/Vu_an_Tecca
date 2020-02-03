@@ -2,14 +2,8 @@
 	<div>
 		<v-carousel height="auto" hide-delimiter-background>
 			<v-carousel-item v-for="(comment, i) in comments" :key="i">
-				<div
-					class="image-overlay"
-					style="min-height: 85vh; max-height: 85vh; width: auto"
-				>
-					<img
-						:src="comment"
-						style="background-size: contain; max-height: 100%; max-width: 100%;"
-					/>
+				<div class="image-overlay" style="max-height: 85vh; width: auto">
+					<img :src="comment" style="background-size: contain; max-height: 100%; max-width: 100%;" />
 				</div>
 			</v-carousel-item>
 		</v-carousel>

@@ -35,14 +35,17 @@ module.exports = {
 
 	plugins: ["~plugins/SlideUpDown.js"],
 
-	buildModules: ["@nuxtjs/vuetify"],
+	buildModules: [
+		"@nuxtjs/vuetify",
+		["@nuxtjs/google-analytics", { id: "UA-144718955-2" }]
+	],
 
 	modules: ["@nuxtjs/axios"],
 	axios: {
 		baseURL:
 			process.env.NODE_ENV === "development"
 				? "http://baybeach.localhost:8080"
-				: "http://alpha.stivesbaybeachchalet.co.uk"
+				: "https://stivesbaybeachchalet.co.uk"
 	},
 	vuetify: {
 		customVariables: ["~/assets/variables.scss"],
@@ -77,6 +80,6 @@ module.exports = {
 		baseURL:
 			process.env.NODE_ENV === "development"
 				? "http://baybeach.localhost:8080"
-				: "http://alpha.stivesbaybeachchalet.co.uk"
+				: "https://stivesbaybeachchalet.co.uk"
 	}
 };

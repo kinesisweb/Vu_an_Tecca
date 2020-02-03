@@ -1,20 +1,15 @@
 <template>
 	<v-container id="puppy-pals-section">
 		<v-row>
-			<v-col cols="4" v-if="$vuetify.breakpoint.mdAndUp">
+			<v-col cols="4" class="d-none d-md-block">
 				<v-img :src="corgi" height="315" />
 			</v-col>
 			<v-col cols="12" md="8">
 				<v-card flat>
-					<v-img
-						class="white--text align-end"
-						height="200px"
-						:src="corgi"
-						v-if="$vuetify.breakpoint.smAndDown"
-					>
+					<v-img class="white--text align-end d-md-none" height="200px" :src="corgi">
 						<v-card-title style="background: rgba(0,0,0,0.4); padding: 0.5em;">Pets at Vu an Tecca</v-card-title>
 					</v-img>
-					<v-card-title v-else>
+					<v-card-title class="d-none d-md-flex">
 						<v-icon>mdi-paw</v-icon>&nbsp; Pets at Vu an Tecca
 					</v-card-title>
 					<v-card-text>We are pleased to welcome small, well-behaved dogs for a nominal additional charge of £20 per dog, on the strict proviso that I get extra puppy cuddles.</v-card-text>

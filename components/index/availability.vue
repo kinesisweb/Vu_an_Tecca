@@ -70,7 +70,10 @@ export default {
 		CompAdminAddBooking
 	},
 	props: {
-		role: String
+		role: {
+			type: String,
+			default: "user"
+		}
 	},
 	data() {
 		return {

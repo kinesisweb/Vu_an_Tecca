@@ -2,9 +2,10 @@
 	<v-row>
 		<v-col cols="12" md="10" offset-md="1">
 			<v-carousel
-				show-arrows-on-hover
+				:show-arrows-on-hover="$vuetify.breakpoint.mdAndUp"
 				class="mx-auto"
 				:hide-delimiter-background="$vuetify.breakpoint.mdAndUp"
+				:hide-delimiters="$vuetify.breakpoint.smAndDown"
 			>
 				<v-carousel-item v-for="(view, i) in views" :key="i" :src="view"></v-carousel-item>
 			</v-carousel>
@@ -28,6 +29,14 @@ export default {
 		return {
 			views: views
 		};
+	},
+	mounted() {
+		const preload = img => {
+			const imageObject = new Image();
+			imageObject.src = img;
+		};
+
+		views.forEach(x => preload(x));
 	}
 };
 </script>

@@ -39,4 +39,10 @@ export default {
 		background: rgba(0, 0, 0, 0.3);
 	}
 }
+
+@supports (-webkit-overflow-scrolling: touch) {
+	.hero-image {
+		background-attachment: scroll;
+	}
+}
 </style>

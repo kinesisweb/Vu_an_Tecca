@@ -9,9 +9,11 @@
 						}}
 					</v-btn>
 				</v-col>
+
 				<v-col cols="12">
 					<v-divider />
 				</v-col>
+
 				<v-col cols="12" md="6">
 					<v-card color="transparent" flat class="text-center">
 						<v-card-title class="justify-center">Any questions? Please get in touch</v-card-title>
@@ -31,6 +33,7 @@
 						</v-card-actions>
 					</v-card>
 				</v-col>
+
 				<v-col cols="12" md="6">
 					<v-card color="transparent" flat class="text-center">
 						<v-card-title class="justify-center">On the Internet</v-card-title>
@@ -58,11 +61,12 @@
 						</v-card-actions>
 					</v-card>
 				</v-col>
+
 				<v-col cols="12">
 					<v-subheader class="justify-center">
 						Site Design &copy; 2020 Kinesis Web Design
 						<br v-if="$vuetify.breakpoint.smAndDown" />
-						<span v-else>–</span>
+						<span v-else>&nbsp;–&nbsp;</span>
 						Content &copy;
 						2020 Vu an Tecca
 					</v-subheader>

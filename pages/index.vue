@@ -142,7 +142,7 @@
 		</section>
 
 		<section id="availability">
-			<v-banner single-line sticky color="deep-orange darken-4">
+			<v-banner single-line sticky color="deep-orange darken-4" style="z-index: 5;">
 				<v-icon slot="icon" dark>mdi-calendar</v-icon>
 				<span class="headline font-weight-bold font-italic">Check Availability &nbsp;</span>
 				<template v-slot:actions>
